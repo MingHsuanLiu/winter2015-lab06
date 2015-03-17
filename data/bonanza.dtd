@@ -12,7 +12,7 @@ and open the template in the editor.
 -->
 
 <!-- An order identifies the customer, order type, burgers and anything special -->
-<!ELEMENT order (customer, order_type, burgers, special)>
+<!ELEMENT order (customer, delivery?, burgers+, special)>
 
 <!-- A customer is identified simply by their name -->
 <!ELEMENT customer (#PCDATA)>
@@ -24,3 +24,41 @@ and open the template in the editor.
 
 <!-- An order to be delivered will need delivery instructions -->
 <!ELEMENT delivery (#PCDATA)>
+
+<!-- Let's provide for any special instructions -->
+<!ELEMENT special (#PCDATA)>
+
+<!-- The burgers will be specified individually -->
+<!ELEMENT burger (patty, cheese?, topping*, sauce*, instruction?, name?)>
+
+<!-- A patty can be one of five types (assume beef), and might be named explicaitly -->
+<!ELEMENT patty (#PCDATA)>
+<!ATTLIST patty
+    type    (beef|pork|turkey|bison|vege) "beef"
+>
+
+<!-- The customer can order two cheeses. Let's assume the one might go on the top
+and one on bottom, and provide for unique codes for these. -->
+<!ELEMENT cheeses (#PCDATA)>
+<!ATTLIST cheeses
+    top (american|swiss|jack|blue|guryere|gouda|aged|goat|brie) #IMPLIED
+    bottom (american|swiss|jack|blue|guryere|gouda|aged|goat|brie) #IMPLIED
+>
+
+<!-- Toppings... there could be tons, so we'll handle them individually -->
+<!ELEMENT topping (#PCDATA)>
+<!ATTLIST topping
+    type    (lettuce|tomato|raw|dill|roasted|shrooms|salsa|bacon|chiles|fkchili|avocado|egg|porkbelly) #REQUIRED
+>
+
+<!-- Sauces are simliar to toppings -->
+<!ELEMENT sauce (EMPTY)>
+<!ATTLIST sauce
+    type    (ketchup|mustard|mayo|fksauce) #REQUIRED
+>
+
+<!-- Instruction can be literally anything -->
+<!ELEMENT instruction (#PCDATA)>
+
+<!-- A name can be anything for now - we'll validate it later -->
+<!ELEMENT name (#PCDATA)>
