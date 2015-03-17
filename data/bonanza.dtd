@@ -12,7 +12,7 @@ and open the template in the editor.
 -->
 
 <!-- An order identifies the customer, order type, burgers and anything special -->
-<!ELEMENT order (customer, delivery?, burgers+, special)>
+<!ELEMENT order (customer, delivery?, burgers+, special?)>
 
 <!-- A customer is identified simply by their name -->
 <!ELEMENT customer (#PCDATA)>
@@ -39,7 +39,7 @@ and open the template in the editor.
 
 <!-- The customer can order two cheeses. Let's assume the one might go on the top
 and one on bottom, and provide for unique codes for these. -->
-<!ELEMENT cheeses (#PCDATA)>
+<!ELEMENT cheeses EMPTY>
 <!ATTLIST cheeses
     top (american|swiss|jack|blue|guryere|gouda|aged|goat|brie) #IMPLIED
     bottom (american|swiss|jack|blue|guryere|gouda|aged|goat|brie) #IMPLIED
@@ -52,7 +52,7 @@ and one on bottom, and provide for unique codes for these. -->
 >
 
 <!-- Sauces are simliar to toppings -->
-<!ELEMENT sauce (EMPTY)>
+<!ELEMENT sauce EMPTY>
 <!ATTLIST sauce
     type    (ketchup|mustard|mayo|fksauce) #REQUIRED
 >
