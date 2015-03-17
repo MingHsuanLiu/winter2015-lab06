@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Order #3 will have two cheeseburgers for miung and takeout
+-->
+
+<!DOCTYPE order SYSTEM 'bonanza.dtd'>
+
+<order type="takeout">
+    <customer>Ming</customer>
+    <burger>
+        <patty type="beef" />
+        <cheeses top="swiss" bottom="blue" />
+        <topping type="lettuce" />
+        <topping type="tomato" />
+        <topping type="salsa" />
+        <sauce type="ketchup" />
+        <sauce type="mustard" />
+    </burger>
+    <burger>
+        <patty type="beef" />
+        <cheeses top="american" bottom="aged" />
+        <topping type="lettuce" />
+        <topping type="avocado" />
+        <topping type="bacon" />
+        <sauce type="ketchup" />
+        <sauce type="mustard" />
+    </burger>
+</order>
