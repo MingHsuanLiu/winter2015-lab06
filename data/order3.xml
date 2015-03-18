@@ -24,5 +24,6 @@ Order #3 will have two cheeseburgers for miung and takeout
         <topping type="bacon" />
         <sauce type="ketchup" />
         <sauce type="mustard" />
+        <instruction>give me peanut butter</instruction>    
     </burger>
 </order>
